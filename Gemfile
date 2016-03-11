@@ -4,6 +4,8 @@ gem 'rails', '4.2.4'
 gem 'pg'
 gem 'devise'
 gem 'grape'
+gem 'grape-swagger'
+gem 'grape-swagger-ui'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

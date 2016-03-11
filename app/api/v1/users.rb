@@ -7,5 +7,6 @@ module V1
       end
     end
 
+    add_swagger_documentation(hide_format: true, api_version: 'v1')
   end
 end

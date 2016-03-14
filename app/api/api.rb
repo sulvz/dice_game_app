@@ -1,4 +1,8 @@
 class API < Grape::API
+
+  helpers UserHelper
+  helpers ParamsHelper
+
   prefix 'api'
   version 'v1', using: :path
   format :json

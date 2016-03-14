@@ -8,6 +8,10 @@ class User < ActiveRecord::Base
   attr_accessible :email,
                   :password
 
+  def self.authenticate!(auth_token)
+    self.find_by_auth_token(auth_token)
+  end
+
   private
   def generate_token
     token = SecureRandom.uuid

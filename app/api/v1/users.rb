@@ -3,10 +3,19 @@ module V1
 
     resource :users do
       get do
+        #authorize!
         User.all
       end
-    end
 
-    add_swagger_documentation(hide_format: true, api_version: 'v1')
+      desc 'User registration'
+      params do
+        requires :email, type: String, desc: 'Your email.'
+        requires :password, type: String, desc: 'Your password.'
+      end
+      post do
+        user = User.create!(params)
+        user.auth_token
+      end
+    end
   end
 end

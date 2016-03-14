@@ -8,4 +8,7 @@ class API < Grape::API
 
   mount V1::Users
 
+  add_swagger_documentation api_version: 'v1',
+                            hide_format: true,
+                            hide_documentation_path: true
 end

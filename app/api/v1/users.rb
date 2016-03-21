@@ -4,7 +4,7 @@ module V1
     resource :users do
       get '/' do
         authenticate!
-        { msg: 'ok' }
+        {"current_score": current_user.score}
       end
 
       desc 'Registrate User'
@@ -12,19 +12,34 @@ module V1
         requires :email, type: String, desc: 'Your email.'
         requires :password, type: String, desc: 'Your password.'
       end
-      post '/registration'do
+      post '/registration' do
         user = User.create!(params)
-        user.auth_token
+        {'X-Dice-Game-Auth-Token': user.auth_token}
       end
 
       desc 'Delete User'
       params do
         requires :email, type: String, desc: 'Your email.'
-        requires :auth_token, type: String, desc: 'AuthToken.'
+        requires :password, type: String, desc: 'Your password.'
       end
-      post '/' do
-        user = User.create!(params)
-        user.auth_token
+      delete '/' do
+        user = User.find_by_email(params[:email])
+        if user && user.password = params.password
+          user.destroy!
+        else
+          error!({ status: :error, message: :user_not_found }, 404)
+        end
+      end
+
+      desc 'Update User Score'
+      params do
+        requires :score, type: Integer, desc: 'User_score'
+      end
+      put '/' do
+        authenticate!
+        current_user.score = params.score
+        current_user.save!
+        {"current_score": current_user.score}
       end
 
     end

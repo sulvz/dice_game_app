@@ -43,6 +43,10 @@ GEM
       thread_safe (~> 0.3, >= 0.3.1)
     bcrypt (3.1.11)
     builder (3.2.2)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.8)
+      climate_control (>= 0.0.3, < 1.0)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
     coffee-rails (4.1.1)
@@ -62,6 +66,12 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    ember-cli-rails (0.7.2)
+      cocaine (~> 0.5.8)
+      ember-cli-rails-assets (>= 0.6.1)
+      html_page (~> 0.1.0)
+      railties (>= 3.2, < 5)
+    ember-cli-rails-assets (0.6.2)
     equalizer (0.0.11)
     erubis (2.7.0)
     execjs (2.6.0)
@@ -86,6 +96,7 @@ GEM
     grape-swagger-ui (0.0.9)
       railties (>= 3.1)
     hashie (3.4.3)
+    html_page (0.1.0)
     i18n (0.7.0)
     ice_nine (0.11.2)
     jquery-rails (4.1.1)
@@ -181,6 +192,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 4.1.0)
   devise
+  ember-cli-rails
   grape
   grape-swagger
   grape-swagger-ui

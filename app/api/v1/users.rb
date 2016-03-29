@@ -3,8 +3,9 @@ module V1
 
     resource :users do
       get '/' do
-        authenticate!
-        {"current_score": current_user.score}
+        #authenticate!
+        #{"current_score": current_user.score}
+        User.all
       end
 
       desc 'Registrate User'

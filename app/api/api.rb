@@ -6,6 +6,7 @@ class API < Grape::API
   prefix 'api'
   version 'v1', using: :path
   format :json
+  formatter :json, Grape::Formatter::Rabl
 
   default_format :json
   default_error_status 400

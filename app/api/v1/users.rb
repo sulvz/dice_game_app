@@ -2,10 +2,10 @@ module V1
   class Users < Grape::API
 
     resource :users do
-      get '/' do
+      get '/', rabl: 'users' do
         #authenticate!
         #{"current_score": current_user.score}
-        User.all
+        @users = User.all
       end
 
       desc 'Registrate User'

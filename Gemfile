@@ -7,6 +7,7 @@ gem 'devise'
 gem 'grape'
 gem 'grape-swagger'
 gem 'grape-swagger-ui'
+gem 'grape-rabl'
 
 gem 'rack-cors'
 
